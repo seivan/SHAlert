@@ -9,10 +9,15 @@
 #import <UIKit/UIKit.h>
 
 #import "SHAppDelegate.h"
+#import <PXEngine/PXEngine.h>
+
 
 int main(int argc, char *argv[])
 {
   @autoreleasepool {
+//    [PXEngine licenseKey:LICENSE_SERIAL forUser:LICENSE_EMAIL];
+    [PXEngine applyStylesheets];
+//    PXEngine.currentApplicationStylesheet.monitorChanges = YES;
       return UIApplicationMain(argc, argv, nil, NSStringFromClass([SHAppDelegate class]));
   }
 }

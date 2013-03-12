@@ -7,13 +7,16 @@
 //
 
 #import "SHAppDelegate.h"
+#import "SHAlert.h"
 
 @implementation SHAppDelegate
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
     // Override point for customization after application launch.
-    return YES;
+  UIStoryboard * storyBoard = [UIStoryboard storyboardWithName:@"MainStoryboard_iPhone" bundle:nil];
+  [SHAlert registerStoryBoard:storyBoard];
+  return YES;
 }
 							
 - (void)applicationWillResignActive:(UIApplication *)application

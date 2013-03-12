@@ -8,7 +8,7 @@
 #
 Pod::Spec.new do |s|
   s.name         = "SHAlert"
-  s.version      = "0.0.1"
+  s.version      = "0.1.0"
   s.summary      = "Custom Alert that uses story board for designing and styling. Has good support for Pixate. "
   s.description  = <<-DESC
 +(SHViewControllerAlert *)alertControllerWithStoryboardId:(NSString *)storyboardId
@@ -29,7 +29,7 @@ DESC
   
   s.author       = { "Seivan Heidari" => "seivan.heidari@icloud.com" }
   
-  s.source       = { :git => "https://github.com/seivan/SHAlert.git", :tag => "0.0.1" }
+  s.source       = { :git => "https://github.com/seivan/SHAlert.git", :tag => "0.1.0" }
   s.platform     = :ios, '5.0'
   
   s.source_files = 'SHAlert/**/*.{h,m}'

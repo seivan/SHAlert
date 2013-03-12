@@ -12,7 +12,6 @@ Requires iOS 5 and above. Works wonders with auto layout.
 
 ## Usage
 
-
 Add the dependency to your `Podfile`:
 
 ```ruby
@@ -29,8 +28,8 @@ Next, import the header file wherever you want to use the picker:
 #import "SHAlert.h"
 ```
 
-Setup your storyboard using either the setOutletCollection and class names
-as user defined runtime variables on the outlets OR the descriptiive outlets themselves. 
+Setup your view controller in the storyboard to use 'SHViewControllerAlert' and connect the setOutletCollection and class names
+as user defined runtime variables on the outlets OR the descriptive outlets themselves (no need for the run time variables then) 
 
 pixate class names are such
 alert-background (view)

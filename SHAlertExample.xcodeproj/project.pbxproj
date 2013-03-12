@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		2217394816EF467E00931B9D /* SHAlert.m in Sources */ = {isa = PBXBuildFile; fileRef = 2217394716EF467E00931B9D /* SHAlert.m */; };
+		2217394A16EF468600931B9D /* PXEngine.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2217394916EF468600931B9D /* PXEngine.framework */; };
 		2251FFA016ED93A2006BE074 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2251FF9F16ED93A2006BE074 /* UIKit.framework */; };
 		2251FFA216ED93A2006BE074 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2251FFA116ED93A2006BE074 /* Foundation.framework */; };
 		2251FFA416ED93A2006BE074 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2251FFA316ED93A2006BE074 /* CoreGraphics.framework */; };
@@ -24,12 +26,13 @@
 		2251FFC616ED93A3006BE074 /* SHSecondViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2251FFC516ED93A3006BE074 /* SHSecondViewController.m */; };
 		2251FFC816ED93A3006BE074 /* second.png in Resources */ = {isa = PBXBuildFile; fileRef = 2251FFC716ED93A3006BE074 /* second.png */; };
 		2251FFCA16ED93A3006BE074 /* second@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 2251FFC916ED93A3006BE074 /* second@2x.png */; };
-		2251FFD316ED94DE006BE074 /* SHAlert.m in Sources */ = {isa = PBXBuildFile; fileRef = 2251FFD216ED94DE006BE074 /* SHAlert.m */; };
 		2251FFD716ED9EA2006BE074 /* default.css in Resources */ = {isa = PBXBuildFile; fileRef = 2251FFD616ED9EA2006BE074 /* default.css */; };
-		2251FFD916EDE663006BE074 /* PXEngine.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2251FFD816EDE663006BE074 /* PXEngine.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		2217394616EF467E00931B9D /* SHAlert.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SHAlert.h; sourceTree = "<group>"; };
+		2217394716EF467E00931B9D /* SHAlert.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SHAlert.m; sourceTree = "<group>"; };
+		2217394916EF468600931B9D /* PXEngine.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = PXEngine.framework; path = SHAlertExample/Vendor/PXEngine.framework; sourceTree = "<group>"; };
 		2251FF9C16ED93A2006BE074 /* SHAlertExample.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SHAlertExample.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		2251FF9F16ED93A2006BE074 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		2251FFA116ED93A2006BE074 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -53,10 +56,7 @@
 		2251FFC516ED93A3006BE074 /* SHSecondViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SHSecondViewController.m; sourceTree = "<group>"; };
 		2251FFC716ED93A3006BE074 /* second.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = second.png; sourceTree = "<group>"; };
 		2251FFC916ED93A3006BE074 /* second@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "second@2x.png"; sourceTree = "<group>"; };
-		2251FFD116ED94DE006BE074 /* SHAlert.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SHAlert.h; sourceTree = "<group>"; };
-		2251FFD216ED94DE006BE074 /* SHAlert.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SHAlert.m; sourceTree = "<group>"; };
 		2251FFD616ED9EA2006BE074 /* default.css */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.css; path = default.css; sourceTree = "<group>"; };
-		2251FFD816EDE663006BE074 /* PXEngine.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = PXEngine.framework; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -67,17 +67,26 @@
 				2251FFA016ED93A2006BE074 /* UIKit.framework in Frameworks */,
 				2251FFA216ED93A2006BE074 /* Foundation.framework in Frameworks */,
 				2251FFA416ED93A2006BE074 /* CoreGraphics.framework in Frameworks */,
-				2251FFD916EDE663006BE074 /* PXEngine.framework in Frameworks */,
+				2217394A16EF468600931B9D /* PXEngine.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		2217394516EF467D00931B9D /* SHAlert */ = {
+			isa = PBXGroup;
+			children = (
+				2217394616EF467E00931B9D /* SHAlert.h */,
+				2217394716EF467E00931B9D /* SHAlert.m */,
+			);
+			path = SHAlert;
+			sourceTree = "<group>";
+		};
 		2251FF9316ED93A2006BE074 = {
 			isa = PBXGroup;
 			children = (
-				2251FFD016ED93B8006BE074 /* SHAlert */,
+				2217394516EF467D00931B9D /* SHAlert */,
 				2251FFA516ED93A2006BE074 /* SHAlertExample */,
 				2251FF9E16ED93A2006BE074 /* Frameworks */,
 				2251FF9D16ED93A2006BE074 /* Products */,
@@ -95,7 +104,7 @@
 		2251FF9E16ED93A2006BE074 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				2251FFD816EDE663006BE074 /* PXEngine.framework */,
+				2217394916EF468600931B9D /* PXEngine.framework */,
 				2251FF9F16ED93A2006BE074 /* UIKit.framework */,
 				2251FFA116ED93A2006BE074 /* Foundation.framework */,
 				2251FFA316ED93A2006BE074 /* CoreGraphics.framework */,
@@ -136,16 +145,6 @@
 				2251FFD616ED9EA2006BE074 /* default.css */,
 			);
 			name = "Supporting Files";
-			sourceTree = "<group>";
-		};
-		2251FFD016ED93B8006BE074 /* SHAlert */ = {
-			isa = PBXGroup;
-			children = (
-				2251FFD116ED94DE006BE074 /* SHAlert.h */,
-				2251FFD216ED94DE006BE074 /* SHAlert.m */,
-			);
-			name = SHAlert;
-			path = SHAlertExample/SHAlert;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -225,7 +224,7 @@
 				2251FFB016ED93A2006BE074 /* SHAppDelegate.m in Sources */,
 				2251FFBF16ED93A3006BE074 /* SHFirstViewController.m in Sources */,
 				2251FFC616ED93A3006BE074 /* SHSecondViewController.m in Sources */,
-				2251FFD316ED94DE006BE074 /* SHAlert.m in Sources */,
+				2217394816EF467E00931B9D /* SHAlert.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -323,6 +322,7 @@
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"\"$(SRCROOT)\"",
+					"\"$(SRCROOT)/SHAlertExample/Vendor\"",
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "SHAlertExample/SHAlertExample-Prefix.pch";
@@ -339,6 +339,7 @@
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"\"$(SRCROOT)\"",
+					"\"$(SRCROOT)/SHAlertExample/Vendor\"",
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "SHAlertExample/SHAlertExample-Prefix.pch";
@@ -368,6 +369,7 @@
 				2251FFCF16ED93A3006BE074 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

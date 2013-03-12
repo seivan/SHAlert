@@ -20,6 +20,7 @@ Pod::Spec.new do |s|
 -(void)setButtonTitleForCancel:(NSString *)theTitle withBlock:(SHAlertButtonTappedBlock)theBlock;
 -(void)setButtonTitleForDestructive:(NSString *)theTitle withBlock:(SHAlertButtonTappedBlock)theBlock;
 -(void)setButtonTitleForAction:(NSString *)theTitle withBlock:(SHAlertButtonTappedBlock)theBlock;
+.
 DESC
 
   s.homepage     = "https://github.com/seivan/SHAlert"

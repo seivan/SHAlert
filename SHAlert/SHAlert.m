@@ -34,8 +34,6 @@ typedef void(^SHAlertReadyBlock)();
 @property(nonatomic,strong) IBOutlet UILabel  * lblMessage;
 
 @property(nonatomic,strong) IBOutlet UIView   * viewAlertBackground;
-@property(nonatomic,strong) dispatch_semaphore_t  semaphore;
-
 @property(nonatomic,strong) NSDictionary      * buttonsWithBlocks;
 
 @property(nonatomic,setter=setTitleText:)   NSString * titleText;
@@ -82,10 +80,10 @@ typedef void(^SHAlertReadyBlock)();
 //Not used
 -(void)prepareForAlert:(SHAlertReadyBlock)theReadyBlock; {
   dispatch_async(alertVcIsReadyQueue(), ^{
-		dispatch_semaphore_wait(self.semaphore, DISPATCH_TIME_FOREVER);
+//		dispatch_semaphore_wait(self.semaphore, DISPATCH_TIME_FOREVER);
 		dispatch_async(dispatch_get_main_queue(), ^{
       theReadyBlock();
-      dispatch_semaphore_signal(self.semaphore);
+//      dispatch_semaphore_signal(self.semaphore);
     });
 	});
   

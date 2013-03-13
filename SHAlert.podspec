@@ -1,32 +1,16 @@
-#
-# Be sure to run `pod spec lint SHAlert.podspec' to ensure this is a
-# valid spec.
-#
-# Remove all comments before submitting the spec. Optional attributes are commented.
-#
-# For details see: https://github.com/CocoaPods/CocoaPods/wiki/The-podspec-format
-#
 Pod::Spec.new do |s|
   s.name         = "SHAlert"
   s.version      = "0.1.1"
   s.summary      = "Custom Alert that uses story board for designing and styling. Has good support for Pixate. "
   s.description  = <<-DESC
-+(SHViewControllerAlert *)alertControllerWithStoryboardId:(NSString *)storyboardId
-                                                withTitle:(NSString *)theTitle
-                                               andMessage:(NSString *)theMessage;
-
--(void)show;
--(void)dismiss;
--(void)setButtonTitleForCancel:(NSString *)theTitle withBlock:(SHAlertButtonTappedBlock)theBlock;
--(void)setButtonTitleForDestructive:(NSString *)theTitle withBlock:(SHAlertButtonTappedBlock)theBlock;
--(void)setButtonTitleForAction:(NSString *)theTitle withBlock:(SHAlertButtonTappedBlock)theBlock;
-.
+  Allows you to style multiple custom Alerts via Storyboard, and assing them as controls to use through blocks.
+  You can set Pixate style class to customize the look and feel for the buttons, background and the alert window. 
 DESC
 
   s.homepage     = "https://github.com/seivan/SHAlert"
 
   
-  s.license      = { :type => 'MIT', :file => 'LICENSE' }
+  s.license      = { :type => 'MIT', :file => 'LICENSE.md' }
   
   s.author       = { "Seivan Heidari" => "seivan.heidari@icloud.com" }
   

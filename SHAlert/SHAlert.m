@@ -24,7 +24,7 @@ static dispatch_queue_t alertVcIsReadyQueue(void)
 
 @interface SHViewControllerAlert ()
 typedef void(^SHAlertReadyBlock)();
-@property(nonatomic,strong) IBOutletCollection(UIView) NSSet * setOfOutlets;
+@property(nonatomic,strong) IBOutletCollection(UIView) NSArray * setOfOutlets;
 
 @property(nonatomic,strong) IBOutlet UIButton * btnDestructive;
 @property(nonatomic,strong) IBOutlet UIButton * btnCancel;
@@ -55,27 +55,27 @@ typedef void(^SHAlertReadyBlock)();
   self.view.alpha = 0.5;
 
   self.viewAlertBackground = UIView.new;
-  
+
   self.lblTitle            = UILabel.new;
   self.lblTitle.textAlignment = NSTextAlignmentCenter;
   self.lblTitle.numberOfLines = 1;
   self.lblMessage          = UILabel.new;
   self.lblMessage.textAlignment = NSTextAlignmentCenter;
   self.lblMessage.numberOfLines = 0;
-  
+
   self.viewAlertBackground.backgroundColor = UIColor.redColor;
-  
+
   //  [self.view setTranslatesAutoresizingMaskIntoConstraints:NO];
   [self.viewAlertBackground setTranslatesAutoresizingMaskIntoConstraints:NO];
   [self.lblTitle setTranslatesAutoresizingMaskIntoConstraints:NO];
   [self.lblMessage setTranslatesAutoresizingMaskIntoConstraints:NO];
-  
-  
+
+
   [self.view addSubview:self.viewAlertBackground];
   [self.viewAlertBackground addSubview:self.lblTitle];
   [self.viewAlertBackground addSubview:self.lblMessage];
   NSLog(@"%@", self.view.constraints);
-  
+
 }
 //Not used
 -(void)prepareForAlert:(SHAlertReadyBlock)theReadyBlock; {
@@ -86,7 +86,7 @@ typedef void(^SHAlertReadyBlock)();
 //      dispatch_semaphore_signal(self.semaphore);
     });
 	});
-  
+
 }
 -(BOOL)isStyle:(NSString *)theStyle onView:(UIView *)theView; {
   NSAssert(theStyle, @"Must pass a style");
@@ -95,16 +95,16 @@ typedef void(^SHAlertReadyBlock)();
   NSString * styleClass = [theView performSelector:@selector(styleClass)];
   if([styleClass isEqualToString:theStyle])
     doesSetupOutletStyleClass = YES;
-  
-  
-  
+
+
+
   return doesSetupOutletStyleClass;
-  
+
 }
 -(void)setup; {
   NSMutableSet * actionButtons = [NSMutableSet set];
   if([self.view respondsToSelector:@selector(setStyleClass:)])
-    [self.setOfOutlets.allObjects enumerateObjectsUsingBlock:^(UIView * obj, NSUInteger _idx, BOOL *_stop) {
+    [self.setOfOutlets enumerateObjectsUsingBlock:^(UIView * obj, NSUInteger _idx, BOOL *_stop) {
       if([self isStyle:@"alert-background" onView:obj])
         self.viewAlertBackground = obj;
       else if([self isStyle:@"title" onView:obj])
@@ -117,20 +117,20 @@ typedef void(^SHAlertReadyBlock)();
         self.btnDestructive = (UIButton *)obj;
       else if([self isStyle:@"action" onView:obj])
         [actionButtons addObject:obj];
-      
+
     }];
   self.setOfActionButtons = actionButtons.copy;
-  
+
 }
 
 -(void)setButtonTitleForCancel:(NSString *)theTitle withBlock:(SHAlertButtonTappedBlock)theBlock; {
   [self setButtonTitleForButton:self.btnCancel withTitle:theTitle withBlock:theBlock];
-  
+
 }
 
 -(void)setButtonTitleForDestructive:(NSString *)theTitle withBlock:(SHAlertButtonTappedBlock)theBlock; {
   [self setButtonTitleForButton:self.btnDestructive withTitle:theTitle withBlock:theBlock];
-  
+
 }
 
 -(void)setButtonTitleForAction:(NSString *)theTitle withBlock:(SHAlertButtonTappedBlock)theBlock; {
@@ -144,12 +144,12 @@ typedef void(^SHAlertReadyBlock)();
 
 -(void)setButtonTitleForButton:(UIButton *)theButton withTitle:(NSString *)theTitle
                      withBlock:(SHAlertButtonTappedBlock)theBlock; {
-  
+
   //  [self prepareForAlert:^{
-  
+
   if(theTitle == nil)
     theTitle = [theButton titleForState:UIControlStateNormal];
-  
+
   NSAssert(theTitle, @"Must pass a title");
   NSAssert1(theButton, @"Must pass a button for title %@", theTitle);
   NSMutableDictionary * buttonsWithBlocks =  self.buttonsWithBlocks.mutableCopy;
@@ -157,19 +157,19 @@ typedef void(^SHAlertReadyBlock)();
   self.buttonsWithBlocks = buttonsWithBlocks.copy;
   [theButton setTitle:theTitle forState:UIControlStateNormal];
   [theButton addTarget:self action:@selector(buttonTapped:) forControlEvents:UIControlEventTouchUpInside];
-  
+
   //  }];
-  
-  
+
+
 }
 
 
 
 -(void)loadView; {
   [super loadView];
-  
+
   //dispatch_semaphore_signal(self.semaphore);
-  
+
 }
 -(void)viewWillAppear:(BOOL)animated; {
   [super viewWillAppear:animated];
@@ -185,9 +185,9 @@ typedef void(^SHAlertReadyBlock)();
     [self setupDefaultAlert];
   else
     [self setup];
-  
-  
-  
+
+
+
 }
 
 
@@ -198,14 +198,14 @@ typedef void(^SHAlertReadyBlock)();
   SHAlertButtonTappedBlock block = self.buttonsWithBlocks[buttonTitle];
   if(block) block(theTappedButton);
   [self dismiss];
-  
+
   //  if(block == nil)
   //    [self dismiss];
   //  else if (block(theTappedButton)) [self dismiss];
   //  else {
   //    [self show];
   //  }
-  
+
 }
 
 
@@ -219,7 +219,7 @@ typedef void(^SHAlertReadyBlock)();
   } completion:^(BOOL finished) {
     [self.delegate didShowAlert:self];
   }];
-  
+
 }
 
 -(void)dismiss; {
@@ -230,26 +230,26 @@ typedef void(^SHAlertReadyBlock)();
     [self.view removeFromSuperview];
     [self.delegate didDismissAlert:self];
   }];
-  
+
 }
 
 
 -(void)setTitleText:(NSString *)textTitle; {
   //  [self prepareForAlert:^{
   self.lblTitle.text = textTitle;
-  
-  
+
+
   //  }];
 }
 
 -(void)setMessageText:(NSString *)textMessage; {
   //  [self prepareForAlert:^{
   self.lblMessage.text = textMessage;
-  
-  
-  
+
+
+
   //  }];
-  
+
 }
 @end
 
@@ -279,7 +279,7 @@ typedef void(^SHAlertReadyBlock)();
   NSMutableOrderedSet * set =  self.setOfOrderedAlerts.mutableCopy;
   [set removeObject:theAlertVc];
   self.setOfOrderedAlerts = set.copy;
-  
+
 }
 
 #pragma mark -
@@ -289,7 +289,7 @@ typedef void(^SHAlertReadyBlock)();
   if (self) {
     self.setOfOrderedAlerts = [NSOrderedSet orderedSet];
   }
-  
+
   return self;
 }
 
@@ -304,23 +304,23 @@ typedef void(^SHAlertReadyBlock)();
   SHAlert.sharedManager.currentStoryboard = theStoryBoard;
 }
 +(SHViewControllerAlert *)alertControllerWithStoryboardId:(NSString *)storyboardId withTitle:(NSString *)theTitle andMessage:(NSString *)theMessage; {
-  
+
   UIStoryboard * storyboard =  SHAlert.sharedManager.currentStoryboard;
-  
+
   NSAssert(storyboardId, @"Must specify storyboard id");
   NSAssert(storyboard, @"Must specify storyboard");
-  
+
   UIViewController * vc = [storyboard instantiateViewControllerWithIdentifier:storyboardId];
   SHViewControllerAlert * vcAlert = (SHViewControllerAlert *)vc;
   if([vcAlert.view respondsToSelector:@selector(setStyleId:)])
     [vcAlert.view performSelector:@selector(setStyleId:) withObject:storyboardId];
-  
+
   vcAlert.lblTitle.text   = theTitle;
   vcAlert.lblMessage.text = theMessage;
   vcAlert.delegate = SHAlert.sharedManager;
   [SHAlert.sharedManager addAlert:vcAlert];
-  
-  
+
+
   return vcAlert;
 }
 
@@ -330,16 +330,16 @@ typedef void(^SHAlertReadyBlock)();
   //  UIStoryboard * sb = [UIStoryboard storyboardWithName:@"MainStoryboard_iPhone" bundle:nil];
   //  UIViewController * vc = [sb instantiateViewControllerWithIdentifier:storyBoardVcName];
   SHViewControllerAlert * vcAlert = [[SHViewControllerAlert alloc] init];
-  
+
   if([vcAlert.view respondsToSelector:@selector(setStyleId:)])
     [vcAlert.view performSelector:@selector(setStyleId:) withObject:alertName];
-  
+
   vcAlert.lblTitle.text   = theTitle;
   vcAlert.lblMessage.text = theMessage;
   vcAlert.delegate = SHAlert.sharedManager;
   [SHAlert.sharedManager addAlert:vcAlert];
-  
-  
+
+
   return vcAlert;
 }
 
@@ -363,7 +363,7 @@ typedef void(^SHAlertReadyBlock)();
   NSAssert(theAlert, @"Must have an alert");
   [self popAlert:theAlert];
   self.currentAlertVc = self.setOfOrderedAlerts.lastObject;
-  
+
 }
 
 

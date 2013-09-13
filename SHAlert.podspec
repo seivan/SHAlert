@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
   s.name         = "SHAlert"
-  s.version      = "0.1.1"
+  s.version      = "0.2.0"
   s.summary      = "Custom Alert that uses story board for designing and styling. Has good support for Pixate. "
   s.description  = <<-DESC
   Allows you to style multiple custom Alerts via Storyboard, and assing them as controls to use through blocks.
